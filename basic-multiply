@@ -1,0 +1,14 @@
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 1.6.0
+      /_/
+
+>>> sc
+<pyspark.context.SparkContext object at 0x2a72c50>
+>>> numbers = sc.parallelize([1, 2, 3, 4])
+>>> mult = numbers.fold(1, (lambda x, y: x * y))
+>>> mult
+24
+>>> 
