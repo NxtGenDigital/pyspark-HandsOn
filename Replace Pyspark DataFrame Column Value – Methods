@@ -1,2 +1,6 @@
 ###Replace Pyspark DataFrame Column Value – Methods
 
+```
+testDF = spark.createDataFrame([(1,"a"), (2,"a"), (3,"222"), (4,"222"), (5,"222"), (6,"a"), (7,"333"), (8,"444")], ["id", "d_id"])
+testDF.show()
+```
