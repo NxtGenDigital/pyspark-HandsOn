@@ -1,8 +1,7 @@
 #####Replace Pyspark DataFrame Column Value – Methods
 
-```
-testDF = spark.createDataFrame([(1,"a"), (2,"a"), (3,"222"), (4,"222"), (5,"222"), (6,"a"), (7,"333"), (8,"444")], ["id", "d_id"])
-testDF.show()
+```testDF = spark.createDataFrame([(1,"a"), (2,"a"), (3,"222"), (4,"222"), (5,"222"), (6,"a"), (7,"333"), (8,"444")], ["id", "d_id"])
+```testDF.show()
 
 # O/p :-
 +---+----+
@@ -15,7 +14,7 @@ testDF.show()
 |  7| 333|
 |  8| 444|
 +---+----+
-```
+
 #Replace Spark DataFrame Column Value using regexp_replace.
 #This is one of the easiest methods that you can use to replace the dataFrame column value.
 #For example, consider following example which replaces “a” with zero.
