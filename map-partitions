@@ -1,0 +1,37 @@
+>>> numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>> numbers
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+>>> rdd = sc.parallelize(numbers, 3)
+
+>>> rdd.collect()
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+>>> rdd.getNumPartitions()
+3
+
+>>> def f(iterator):
+...     for x in iterator:
+...             print(x)
+...     print "==="
+...
+>>> rdd.foreachPartition(f)
+1
+2
+3
+===
+7
+8
+9
+10
+===
+4
+5
+6
+===
+
+>>> def adder(iterator):
+...     yield sum(iterator)
+...
+>>> rdd.mapPartitions(adder).collect()
+[6, 15, 34]
