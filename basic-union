@@ -1,0 +1,28 @@
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 1.6.0
+      /_/
+
+Using Python version 2.6.6 (r266:84292, Jul 23 2015 15:22:56)
+SparkContext available as sc, HiveContext available as sqlContext.
+>>> d1= [('k1', 1), ('k2', 2), ('k3', 5)]
+>>> d1
+[('k1', 1), ('k2', 2), ('k3', 5)]
+>>> d2= [('k1', 3), ('k2',4), ('k4', 8)]
+>>> d2
+[('k1', 3), ('k2', 4), ('k4', 8)]
+>>> rdd1 = sc.parallelize(d1)
+>>> rdd1.collect()
+[('k1', 1), ('k2', 2), ('k3', 5)]
+>>> rdd2 = sc.parallelize(d2)
+>>> rdd2.collect()
+[('k1', 3), ('k2', 4), ('k4', 8)]
+>>> rdd3 = rdd1.union(rdd1)
+>>> rdd3.collect()
+[('k1', 1), ('k2', 2), ('k3', 5), ('k1', 1), ('k2', 2), ('k3', 5)]
+>>> rdd4 = rdd3.reduceByKey(lambda x,y: x+y)
+>>> rdd4.collect()
+[('k3', 10), ('k1', 2), ('k2', 4)]                                              
+>>> 
